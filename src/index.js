@@ -11,6 +11,7 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import { logger, featuring } from "./middlewares";
+import rootReducer from "./reducers/rootReducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -23,7 +24,7 @@ const composedEnhancers = composeAlt(applyMiddleware(logger, thunk));
 //   applyMiddleware(logger,thunk)
 // );
 
-const store = createStore(pokemonsReducer, composedEnhancers);
+const store = createStore(rootReducer, composedEnhancers);
 
 root.render(
   <React.StrictMode>
